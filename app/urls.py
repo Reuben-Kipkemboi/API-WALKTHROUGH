@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.home, name='home'),
     path('', views.next, name='next'),
-   
+    path('api/students/', views.StudentsList.as_view())
 ]
+   
