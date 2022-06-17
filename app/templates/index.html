@@ -1,11 +1,58 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-    <div class="col-md-6 shadow mx-auto" style="height: 50vh; font-size: 5vh; padding: 4%;">
-        API & API METHODS
+<div class="container-fluid">
+    <p class="text-center p-2">API Corner</p>
+    <div class="row mt-4">
+        <div class="col-md-4 shadow mx-auto" style="height: 40vh; font-size: 5vh; padding: 4%;">
+            API & API METHODS
 
-            <a href="{% url 'studentendpoint' %}"><button type="button" class="btn btn-outline-info btn-sm">STUDENTS ENDPOINT</button></a>
+            <a href="{% url 'studentendpoint' %}"><button type="button" class="btn btn-outline-info btn-sm">STUDENTS
+                    ENDPOINT</button></a>
+        </div>
+        <div class="col-md-7 shadow p-3 ">
+            <!-- First Row -->
+            <form action="" method="POST" class="mb-3">
+                {% csrf_token %}
+
+                <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Students First Name</label>
+                        <input type="firstname" class="form-control" id="first_name" aria-describedby="emailHelp"
+                            name="first_name">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="lastname">Students Last Name</label>
+                        <input type="text" class="form-control" id="last_name" name="last_name">
+                    </div>
+                </div>
+                <!-- second row -->
+                <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                        <label for="age">Students Age</label>
+                        <input type="number" class="form-control" id="age" aria-describedby="emailHelp" name="age">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="Gender">Students Gender</label>
+                        <input type="text" class="form-control" id="gender" name="gender">
+                    </div>
+                </div>
+                <!-- Third Row -->
+                <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                        <label for="speciality">Students speciality</label>
+                        <input type="text" class="form-control" id="speciality" aria-describedby="emailHelp"
+                            name="speciality">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="laptop">Students Laptop Type</label>
+                        <input type="text" class="form-control" id="laptop" name="laptop">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-outline-info btn-sm">Add Student</button>
+            </form>
+        </div>
     </div>
 </div>
 

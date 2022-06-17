@@ -8,7 +8,21 @@ from .permissions import IsAdminOrReadOnly
 from django.http import Http404
 # App views
 def home(request):
-    return render(request, 'index.html')
+    students = Students.objects.all()
+    
+    if request.method =='POST':
+        student_first_name = request.POST['first_name']
+        student_last_name = request.POST['last_name']
+        students_Age= request.POST['age']
+        student_gender= request.POST['gender']
+        student_speciality = request.POST['speciality']
+        student_laptop_type= request.POST['laptop']
+        
+        new_student = Students.objects.create(student_first_name= student_first_name,student_last_name=student_last_name,students_Age=students_Age,student_gender=student_gender,student_speciality=student_speciality, student_laptop_type=student_laptop_type)
+        
+        new_student.save()
+        return redirect('home')
+    return render(request, 'index.html', {'students':students})
 
 
 def next(request):
